@@ -32,7 +32,6 @@ sortdata = sorted(data.items(), key=lambda x:x[0])
 signature = hmac.new(b'9cWbNgUqiL91raHPVmrP', parse.urlencode(sortdata).encode(), hashlib.sha1)
 data['signature'] = signature.hexdigest()
 
-
 header = {'Content-Type':'application/json'}
 interface = '/api/device-fingerprint'
 url = protocol + '://' + ip + ':' + port + interface
