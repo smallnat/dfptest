@@ -3,6 +3,10 @@ import json
 import hashlib
 import hmac
 
+protocol = 'http'
+ip = 'dfp3.bsfit.com.cn'
+port = '80'
+
 # 拼数据
 pkg = {}
 pkg['userAgent'] = 'MOZILL'
@@ -30,9 +34,6 @@ data['signature'] = signature.hexdigest()
 
 
 header = {'Content-Type':'application/json'}
-protocol = 'http'
-ip = 'dfp3.bsfit.com.cn'
-port = '80'
 interface = '/api/device-fingerprint'
 url = protocol + '://' + ip + ':' + port + interface
 req = request.Request(url, json.dumps(data).encode('utf-8'), header)
