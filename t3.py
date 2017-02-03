@@ -23,8 +23,9 @@ packageStr = parse.urlencode(pkg)
 data['packageStr'] = packageStr
 data['partnerCode'] = 'xinbang'
 data['platform'] = '2'
+sortdata = sorted(data.items(), key=lambda x:x[0])
 # print(parse.urlencode(data).encode())
-signature = hmac.new(b'9cWbNgUqiL91raHPVmrP', parse.urlencode(data).encode(), hashlib.sha1)
+signature = hmac.new(b'9cWbNgUqiL91raHPVmrP', parse.urlencode(sortdata).encode(), hashlib.sha1)
 data['signature'] = signature.hexdigest()
 
 
